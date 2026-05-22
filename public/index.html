@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Burundi Coffee — Café de spécialité du Burundi</title>
-  <meta name="description" content="Café de spécialité directement du Burundi. Grains ou moulu, 500g. Livraison Colissimo partout en France et en Europe.">
+  <title>Le Comptoir des Cafés — Marketplace de cafés de spécialité</title>
+  <meta name="description" content="Marketplace de cafés de spécialité du monde entier. Arrivages réguliers, sélection rigoureuse SCA 86+. Livraison Colissimo partout en France et en Europe.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -12,338 +12,400 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --brown: #2C1810;
-      --cream: #F5EDD6;
-      --gold: #C8961E;
-      --dark: #1A0F08;
-      --green: #2D4A1E;
-      --light: #FBF7EE;
-      --text: #3D2314;
-      --muted: #7A5C45;
+      --brown: #2C1810; --cream: #F5EDD6; --gold: #C8961E; --dark: #1A0F08;
+      --green: #2D4A1E; --light: #FBF7EE; --text: #3D2314; --muted: #7A5C45; --border: #E0D4B8;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--text); }
 
-    /* ── HEADER ── */
+    /* HEADER */
     .header { background: var(--dark); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--cream); letter-spacing: 0.05em; }
-    .logo span { color: var(--gold); }
-    .cart-btn { background: var(--gold); color: var(--dark); border: none; padding: 0.5rem 1.2rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-weight: 500; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; transition: opacity 0.2s; }
-    .cart-btn:hover { opacity: 0.9; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--cream); }
+    .logo span { display: block; color: var(--gold); font-size: 0.72rem; font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 1px; }
+    .cart-btn { background: var(--gold); color: var(--dark); border: none; padding: 0.5rem 1.2rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-weight: 500; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; }
     .cart-count { background: var(--dark); color: var(--gold); border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; }
 
-    /* ── HERO ── */
-    .hero { background: var(--dark); padding: 5rem 2rem 4rem; text-align: center; }
+    /* HERO */
+    .hero { background: var(--dark); padding: 4.5rem 2rem 3.5rem; text-align: center; }
     .hero-inner { max-width: 700px; margin: 0 auto; }
-    .badge { display: inline-block; background: var(--gold); color: var(--dark); font-size: 0.75rem; font-weight: 700; padding: 0.3rem 1rem; border-radius: 20px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--cream); line-height: 1.2; margin-bottom: 1rem; }
+    .badge { display: inline-block; background: var(--gold); color: var(--dark); font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.9rem; border-radius: 20px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--cream); line-height: 1.2; margin-bottom: 1rem; }
     .hero h1 em { color: var(--gold); font-style: italic; }
-    .hero-sub { color: #C4A882; font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; font-weight: 300; }
-    .hero-cta { display: inline-block; background: var(--gold); color: var(--dark); padding: 0.9rem 2.5rem; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: transform 0.2s; text-decoration: none; }
-    .hero-cta:hover { transform: translateY(-2px); }
-    .guarantee-bar { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
-    .guarantee-item { display: flex; align-items: center; gap: 6px; color: #C4A882; font-size: 0.85rem; }
-    .guarantee-item i { color: var(--gold); }
+    .hero-sub { color: #C4A882; font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; font-weight: 300; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .btn-primary { background: var(--gold); color: var(--dark); border: none; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .btn-outline { background: transparent; color: var(--cream); border: 0.5px solid #7A5C45; padding: 0.8rem 2rem; border-radius: 8px; font-size: 0.95rem; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .stats-bar { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat strong { display: block; font-size: 1.3rem; font-weight: 700; color: var(--cream); }
+    .stat span { font-size: 0.78rem; color: #7A5C45; letter-spacing: 0.05em; }
 
-    /* ── VALUE STACK ── */
-    .value-section { background: var(--cream); padding: 3.5rem 2rem; }
-    .section-title { font-family: 'Playfair Display', serif; text-align: center; font-size: 1.8rem; color: var(--brown); margin-bottom: 0.5rem; }
-    .section-sub { text-align: center; color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
-    .value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; max-width: 800px; margin: 0 auto; }
-    .value-card { background: white; border-radius: 12px; padding: 1.2rem; border: 0.5px solid #E0D4B8; text-align: center; }
-    .value-card i { font-size: 28px; color: var(--gold); margin-bottom: 0.5rem; display: block; }
-    .value-card strong { display: block; font-size: 0.9rem; color: var(--brown); font-weight: 500; margin-bottom: 0.3rem; }
-    .value-card span { font-size: 0.8rem; color: var(--muted); }
+    /* PROMISE */
+    .promise-section { background: var(--cream); padding: 2.5rem 2rem; }
+    .promise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; max-width: 800px; margin: 0 auto; }
+    .promise-card { background: white; border-radius: 12px; padding: 1rem; border: 0.5px solid var(--border); text-align: center; }
+    .promise-card i { font-size: 24px; color: var(--gold); display: block; margin-bottom: 0.4rem; }
+    .promise-card strong { display: block; font-size: 0.85rem; color: var(--brown); margin-bottom: 0.2rem; }
+    .promise-card span { font-size: 0.78rem; color: var(--muted); }
 
-    /* ── PRODUCTS ── */
-    .products-section { padding: 3.5rem 2rem; max-width: 900px; margin: 0 auto; }
-    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .product-card { background: white; border-radius: 16px; border: 0.5px solid #E0D4B8; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
-    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(44,24,16,0.1); }
-    .product-img { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 5rem; position: relative; }
-    .product-img.grain { background: linear-gradient(135deg, #3D2314, #6B3A1F); }
-    .product-img.moulu { background: linear-gradient(135deg, #1A0F08, #3D2314); }
-    .stock-badge { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.15); color: white; font-size: 0.7rem; padding: 3px 8px; border-radius: 10px; }
-    .stock-badge.low { background: rgba(200, 80, 30, 0.75); }
-    .product-body { padding: 1.2rem; }
-    .product-type { font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; margin-bottom: 0.3rem; }
-    .product-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--brown); margin-bottom: 0.5rem; }
-    .product-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
-    .tasting-notes { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem; }
-    .note-tag { background: #F5EDD6; color: var(--brown); font-size: 0.72rem; padding: 3px 8px; border-radius: 10px; }
-    .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 0.8rem; }
-    .price { font-size: 1.6rem; font-weight: 700; color: var(--brown); }
-    .price-detail { font-size: 0.78rem; color: var(--muted); }
-    .add-btn { width: 100%; padding: 0.75rem; background: var(--brown); color: var(--cream); border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    /* ARRIVALS */
+    .arrivals-section { padding: 3rem 2rem; max-width: 960px; margin: 0 auto; }
+    .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.4rem; }
+    .section-header h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--brown); }
+    .arrivals-sub { color: var(--muted); font-size: 0.88rem; margin-bottom: 2rem; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
+    .product-card { background: white; border-radius: 14px; border: 0.5px solid var(--border); overflow: hidden; transition: transform 0.2s; }
+    .product-card:hover { transform: translateY(-3px); }
+    .product-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 4rem; position: relative; }
+    .product-img.burundi { background: linear-gradient(135deg, #3D2314, #6B3A1F); }
+    .product-img.coming { background: linear-gradient(135deg, #2C2C2A, #444441); opacity: 0.7; }
+    .new-badge { position: absolute; top: 10px; left: 10px; background: var(--gold); color: var(--dark); font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .stock-badge { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.12); color: white; font-size: 0.68rem; padding: 2px 7px; border-radius: 10px; }
+    .stock-badge.low { background: rgba(200, 80, 30, 0.7); }
+    .product-body { padding: 1rem; }
+    .origin-tag { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; margin-bottom: 0.3rem; }
+    .product-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--brown); margin-bottom: 0.35rem; }
+    .product-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; margin-bottom: 0.75rem; }
+    .taste-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .taste-tag { background: #F5EDD6; color: var(--brown); font-size: 0.68rem; padding: 2px 7px; border-radius: 8px; }
+    .price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
+    .price { font-size: 1.3rem; font-weight: 700; color: var(--brown); }
+    .price-sub { font-size: 0.72rem; color: var(--muted); }
+    .add-btn { width: 100%; padding: 0.65rem; background: var(--brown); color: var(--cream); border: none; border-radius: 7px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; transition: background 0.2s; }
     .add-btn:hover { background: var(--dark); }
     .add-btn:disabled { background: #C4A882; cursor: not-allowed; }
 
-    /* ── COMMANDE / LIVRAISON ── */
-    .order-section { background: var(--cream); padding: 3.5rem 2rem; }
-    .order-box { max-width: 600px; margin: 0 auto; background: white; border-radius: 16px; padding: 2rem; border: 0.5px solid #E0D4B8; }
-    .order-box h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--brown); margin-bottom: 0.4rem; }
-    .order-box p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; }
-    .qty-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; }
-    .qty-row label { font-size: 0.9rem; color: var(--text); flex: 1; }
-    .qty-input { width: 70px; padding: 6px 10px; border: 0.5px solid #C8B898; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 1rem; text-align: center; color: var(--text); background: white; }
-    .zone-select { width: 100%; padding: 10px 12px; border: 0.5px solid #C8B898; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--text); background: white; margin-bottom: 1.5rem; }
-    .total-box { background: var(--dark); border-radius: 12px; padding: 1.2rem; }
-    .total-line { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.5rem; color: #C4A882; }
-    .total-final { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; color: var(--cream); border-top: 0.5px solid #3D2314; padding-top: 0.8rem; margin-top: 0.3rem; }
-    .stripe-btn { width: 100%; margin-top: 1.2rem; padding: 0.9rem; background: var(--gold); color: var(--dark); border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.2s, opacity 0.2s; }
+    /* ORIGINS */
+    .origins-section { background: var(--cream); padding: 3rem 2rem; }
+    .origins-section h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--brown); text-align: center; margin-bottom: 0.4rem; }
+    .origins-section p { text-align: center; color: var(--muted); font-size: 0.88rem; margin-bottom: 2rem; }
+    .origins-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.75rem; max-width: 800px; margin: 0 auto; }
+    .origin-card { background: white; border-radius: 10px; padding: 1rem; border: 0.5px solid var(--border); text-align: center; }
+    .origin-card .flag { font-size: 2rem; margin-bottom: 0.4rem; display: block; }
+    .origin-card strong { display: block; font-size: 0.85rem; color: var(--brown); margin-bottom: 0.2rem; }
+    .origin-card span { font-size: 0.75rem; color: var(--muted); }
+    .origin-card.soon { opacity: 0.55; }
+
+    /* ORDER */
+    .order-section { padding: 3rem 2rem; }
+    .order-box { max-width: 560px; margin: 0 auto; background: white; border-radius: 16px; padding: 2rem; border: 0.5px solid var(--border); }
+    .order-box h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--brown); margin-bottom: 0.4rem; }
+    .order-box p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.2rem; }
+    .qty-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.65rem; }
+    .qty-row label { font-size: 0.85rem; color: var(--text); flex: 1; }
+    .qty-input { width: 65px; padding: 5px 8px; border: 0.5px solid var(--border); border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; text-align: center; background: white; color: var(--text); }
+    .zone-select { width: 100%; padding: 8px 10px; border: 0.5px solid var(--border); border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; margin-bottom: 1.2rem; background: white; color: var(--text); }
+    .total-box { background: var(--dark); border-radius: 10px; padding: 1.1rem; }
+    .total-line { display: flex; justify-content: space-between; font-size: 0.85rem; color: #C4A882; margin-bottom: 0.4rem; }
+    .total-final { display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 700; color: var(--cream); border-top: 0.5px solid #3D2314; padding-top: 0.7rem; margin-top: 0.3rem; }
+    .stripe-btn { width: 100%; margin-top: 1rem; padding: 0.85rem; background: var(--gold); color: var(--dark); border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; transition: transform 0.2s; }
     .stripe-btn:hover { transform: translateY(-1px); }
     .stripe-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .stripe-note { text-align: center; font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 4px; }
+    .stripe-note { text-align: center; font-size: 0.72rem; color: var(--muted); margin-top: 0.4rem; display: flex; align-items: center; justify-content: center; gap: 4px; }
     .error-msg { color: #A32D2D; font-size: 0.85rem; margin-top: 0.75rem; text-align: center; display: none; }
 
-    /* ── SOCIAL PROOF ── */
-    .proof-section { padding: 3.5rem 2rem; max-width: 900px; margin: 0 auto; }
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; }
-    .review-card { background: white; border-radius: 12px; padding: 1.2rem; border: 0.5px solid #E0D4B8; }
-    .stars { color: var(--gold); margin-bottom: 0.5rem; font-size: 0.9rem; }
-    .review-text { font-size: 0.85rem; color: var(--text); line-height: 1.6; margin-bottom: 0.8rem; font-style: italic; }
-    .reviewer { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+    /* NEWSLETTER */
+    .newsletter { background: var(--green); padding: 2.5rem 2rem; text-align: center; }
+    .newsletter h2 { font-family: 'Playfair Display', serif; color: white; font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .newsletter p { color: #A8C990; font-size: 0.88rem; margin-bottom: 1.2rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .newsletter-form { display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .newsletter-input { flex: 1; min-width: 200px; padding: 0.7rem 1rem; border-radius: 7px; border: none; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; }
+    .newsletter-btn { padding: 0.7rem 1.2rem; background: var(--gold); color: var(--dark); border: none; border-radius: 7px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; }
 
-    /* ── GUARANTEE ── */
-    .guarantee-section { background: var(--green); padding: 3rem 2rem; text-align: center; }
-    .guarantee-section h2 { font-family: 'Playfair Display', serif; color: white; font-size: 1.5rem; margin-bottom: 0.75rem; }
-    .guarantee-section p { color: #A8C990; max-width: 500px; margin: 0 auto; font-size: 0.9rem; line-height: 1.7; }
+    /* GUARANTEE */
+    .guarantee-section { background: var(--cream); padding: 2.5rem 2rem; text-align: center; }
+    .guarantee-section h2 { font-family: 'Playfair Display', serif; color: var(--brown); font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .guarantee-section p { color: var(--muted); max-width: 480px; margin: 0 auto; font-size: 0.88rem; line-height: 1.7; }
 
-    /* ── FOOTER ── */
-    .footer { background: var(--dark); padding: 1.5rem 2rem; text-align: center; color: #7A5C45; font-size: 0.8rem; }
+    /* FOOTER */
+    .footer { background: var(--dark); padding: 1.5rem 2rem; text-align: center; color: #7A5C45; font-size: 0.78rem; }
 
-    /* ── PANIER LATÉRAL ── */
+    /* CART */
     .cart-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; }
     .cart-overlay.open { display: block; }
-    .cart-panel { position: fixed; top: 0; right: 0; width: min(380px, 100vw); height: 100vh; background: white; overflow-y: auto; padding: 1.5rem; font-family: 'DM Sans', sans-serif; box-shadow: -4px 0 24px rgba(0,0,0,0.15); }
-    .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-    .cart-header h3 { font-family: 'Playfair Display', serif; color: var(--brown); font-size: 1.2rem; }
-    .close-cart { background: none; border: none; cursor: pointer; font-size: 1.4rem; color: var(--muted); line-height: 1; }
-    .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 0.5px solid #E0D4B8; gap: 0.5rem; }
-    .cart-item-name { font-size: 0.9rem; color: var(--text); margin-bottom: 0.2rem; }
-    .cart-item-price { font-size: 0.8rem; color: var(--muted); }
-    .cart-item-remove { background: none; border: none; color: #E24B4A; cursor: pointer; padding: 4px; flex-shrink: 0; }
-    .cart-empty { text-align: center; color: var(--muted); padding: 2rem 0; font-size: 0.9rem; }
-    .cart-total-section { margin-top: 1rem; }
-    .checkout-btn { width: 100%; margin-top: 1rem; padding: 0.9rem; background: var(--gold); color: var(--dark); border: none; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: opacity 0.2s; }
-    .checkout-btn:hover { opacity: 0.9; }
+    .cart-panel { position: fixed; top: 0; right: 0; width: min(360px, 100vw); height: 100vh; background: white; overflow-y: auto; padding: 1.5rem; box-shadow: -4px 0 24px rgba(0,0,0,0.15); }
+    .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }
+    .cart-header h3 { font-family: 'Playfair Display', serif; color: var(--brown); font-size: 1.1rem; }
+    .close-cart { background: none; border: none; cursor: pointer; font-size: 1.3rem; color: var(--muted); }
+    .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 0; border-bottom: 0.5px solid var(--border); gap: 0.5rem; }
+    .cart-item-name { font-size: 0.85rem; color: var(--text); margin-bottom: 0.15rem; }
+    .cart-item-price { font-size: 0.78rem; color: var(--muted); }
+    .cart-item-remove { background: none; border: none; color: #E24B4A; cursor: pointer; flex-shrink: 0; }
+    .cart-empty { text-align: center; color: var(--muted); padding: 2rem 0; font-size: 0.88rem; }
+    .checkout-btn { width: 100%; margin-top: 1rem; padding: 0.85rem; background: var(--gold); color: var(--dark); border: none; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; font-family: 'DM Sans', sans-serif; }
   </style>
 </head>
 <body>
 
-<!-- ── HEADER ── -->
 <header class="header">
-  <div class="logo">Burundi <span>Coffee</span></div>
+  <div class="logo">
+    Le Comptoir des Cafés
+    <span>Marketplace de cafés de spécialité · Arrivages du monde entier</span>
+  </div>
   <button class="cart-btn" onclick="toggleCart()">
-    <i class="ti ti-shopping-bag"></i>
-    Mon panier
+    <i class="ti ti-shopping-bag" aria-hidden="true"></i>
+    Panier
     <span class="cart-count" id="cartCount">0</span>
   </button>
 </header>
 
-<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="badge">☕ Récolte 2024 — Stock limité</div>
-    <h1>Le café du Burundi<br>que vous ne trouverez<br><em>nulle part ailleurs</em></h1>
-    <p class="hero-sub">Directement des collines de Kayanza, torréfié avec soin. Chaque sachet de 500g révèle des notes de fruits rouges, de caramel et de fleurs sauvages.</p>
-    <a href="#produits" class="hero-cta">Découvrir les cafés</a>
-    <div class="guarantee-bar">
-      <div class="guarantee-item"><i class="ti ti-shield-check"></i> Satisfait ou remboursé</div>
-      <div class="guarantee-item"><i class="ti ti-truck-delivery"></i> Livraison Colissimo 48h</div>
-      <div class="guarantee-item"><i class="ti ti-lock"></i> Paiement sécurisé Stripe</div>
-      <div class="guarantee-item"><i class="ti ti-leaf"></i> Café de spécialité</div>
+    <div class="badge">Nouvel arrivage — Burundi Kayanza</div>
+    <h1>Les meilleurs cafés du monde,<br><em>livrés chez vous</em></h1>
+    <p class="hero-sub">Chaque mois, nous sélectionnons des cafés de spécialité d'exception aux quatre coins du globe. Du producteur à votre tasse, sans intermédiaire.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.querySelector('.arrivals-section').scrollIntoView({behavior:'smooth'})">
+        <i class="ti ti-package" aria-hidden="true"></i> Voir les arrivages
+      </button>
+      <button class="btn-outline" onclick="document.querySelector('.origins-section').scrollIntoView({behavior:'smooth'})">
+        Explorer les origines
+      </button>
+    </div>
+    <div class="stats-bar">
+      <div class="stat"><strong>12+</strong><span>Origines à venir</span></div>
+      <div class="stat"><strong>SCA 86+</strong><span>Score minimum</span></div>
+      <div class="stat"><strong>48h</strong><span>Livraison Colissimo</span></div>
     </div>
   </div>
 </section>
 
-<!-- ── VALUE STACK ── -->
-<section class="value-section">
-  <h2 class="section-title">Ce que vous recevez</h2>
-  <p class="section-sub">Pas juste du café. Une expérience complète.</p>
-  <div class="value-grid">
-    <div class="value-card">
-      <i class="ti ti-award"></i>
-      <strong>Café de spécialité</strong>
-      <span>Score SCA 86+</span>
+<section class="promise-section">
+  <div class="promise-grid">
+    <div class="promise-card">
+      <i class="ti ti-world" aria-hidden="true"></i>
+      <strong>Origines rares</strong>
+      <span>Directement des producteurs</span>
     </div>
-    <div class="value-card">
-      <i class="ti ti-map-pin"></i>
-      <strong>Origine unique</strong>
-      <span>Kayanza, Burundi</span>
+    <div class="promise-card">
+      <i class="ti ti-rotate-clockwise" aria-hidden="true"></i>
+      <strong>Arrivages réguliers</strong>
+      <span>Nouvelles origines chaque mois</span>
     </div>
-    <div class="value-card">
-      <i class="ti ti-package"></i>
-      <strong>Emballage hermétique</strong>
-      <span>Fraîcheur garantie</span>
+    <div class="promise-card">
+      <i class="ti ti-award" aria-hidden="true"></i>
+      <strong>Sélection rigoureuse</strong>
+      <span>Score SCA 86+ uniquement</span>
     </div>
-    <div class="value-card">
-      <i class="ti ti-file-text"></i>
-      <strong>Guide de dégustation</strong>
-      <span>Offert avec chaque commande</span>
+    <div class="promise-card">
+      <i class="ti ti-shield-check" aria-hidden="true"></i>
+      <strong>Satisfait ou remboursé</strong>
+      <span>14 jours sans questions</span>
     </div>
   </div>
 </section>
 
-<!-- ── PRODUITS ── -->
-<section class="products-section" id="produits">
-  <h2 class="section-title">Nos cafés</h2>
-  <p class="section-sub">Burundi · Kayanza · Altitude 1800m · Lavé naturel</p>
-  <div class="products-grid">
+<section class="arrivals-section">
+  <div class="section-header">
+    <h2>Derniers arrivages</h2>
+  </div>
+  <p class="arrivals-sub">Classés par date d'arrivée — les plus récents en premier</p>
+  <div class="products-grid" id="productsGrid">
 
     <div class="product-card">
-      <div class="product-img grain">
+      <div class="product-img burundi">
+        <div class="new-badge">Nouveau</div>
+        <div class="stock-badge low" id="stockGrainBadge">10 disponibles</div>
         ☕
-        <div class="stock-badge" id="stockGrainBadge">Chargement...</div>
       </div>
       <div class="product-body">
-        <div class="product-type">Café en grain</div>
-        <div class="product-name">Burundi Kayanza — Grain</div>
-        <div class="product-desc">Conservez tous les arômes en broyant au moment. Idéal pour les amateurs exigeants qui possèdent un moulin.</div>
-        <div class="tasting-notes">
-          <span class="note-tag">Fruits rouges</span>
-          <span class="note-tag">Caramel</span>
-          <span class="note-tag">Fleurs</span>
+        <div class="origin-tag">🇧🇮 Burundi · Kayanza · Mai 2026</div>
+        <div class="product-name">Kayanza Natural — Grain</div>
+        <div class="product-desc">Café lavé naturel, altitude 1800m. Complexité aromatique remarquable.</div>
+        <div class="taste-tags">
+          <span class="taste-tag">Fruits rouges</span>
+          <span class="taste-tag">Caramel</span>
+          <span class="taste-tag">Fleurs</span>
         </div>
         <div class="price-row">
           <div class="price">25,00 €</div>
-          <div class="price-detail">Sachet 500g · + port</div>
+          <div class="price-sub">500g · + port</div>
         </div>
-        <button class="add-btn" id="btnGrain" onclick="addToCart('grain')">
-          <i class="ti ti-shopping-cart-plus"></i> Ajouter au panier
+        <button class="add-btn" onclick="addToCart('grain', 'Burundi Kayanza — Grain')">
+          <i class="ti ti-shopping-cart-plus" aria-hidden="true"></i> Ajouter au panier
         </button>
       </div>
     </div>
 
     <div class="product-card">
-      <div class="product-img moulu">
+      <div class="product-img burundi">
+        <div class="new-badge">Nouveau</div>
+        <div class="stock-badge low" id="stockMouluBadge">10 disponibles</div>
         ☕
-        <div class="stock-badge" id="stockMouluBadge">Chargement...</div>
       </div>
       <div class="product-body">
-        <div class="product-type">Café moulu</div>
-        <div class="product-name">Burundi Kayanza — Moulu</div>
-        <div class="product-desc">Moulu à la perfection pour cafetière, piston ou filtre. Prêt à l'emploi dès l'ouverture du sachet.</div>
-        <div class="tasting-notes">
-          <span class="note-tag">Chocolat noir</span>
-          <span class="note-tag">Agrumes</span>
-          <span class="note-tag">Miel</span>
+        <div class="origin-tag">🇧🇮 Burundi · Kayanza · Mai 2026</div>
+        <div class="product-name">Kayanza Natural — Moulu</div>
+        <div class="product-desc">Même café, moulu à la perfection pour filtre, piston ou cafetière.</div>
+        <div class="taste-tags">
+          <span class="taste-tag">Chocolat noir</span>
+          <span class="taste-tag">Agrumes</span>
+          <span class="taste-tag">Miel</span>
         </div>
         <div class="price-row">
           <div class="price">25,00 €</div>
-          <div class="price-detail">Sachet 500g · + port</div>
+          <div class="price-sub">500g · + port</div>
         </div>
-        <button class="add-btn" id="btnMoulu" onclick="addToCart('moulu')">
-          <i class="ti ti-shopping-cart-plus"></i> Ajouter au panier
+        <button class="add-btn" onclick="addToCart('moulu', 'Burundi Kayanza — Moulu')">
+          <i class="ti ti-shopping-cart-plus" aria-hidden="true"></i> Ajouter au panier
         </button>
+      </div>
+    </div>
+
+    <div class="product-card" style="opacity:0.6">
+      <div class="product-img coming">☕</div>
+      <div class="product-body">
+        <div class="origin-tag">🇪🇹 Éthiopie · Yirgacheffe · Juin 2026</div>
+        <div class="product-name">Yirgacheffe Washed</div>
+        <div class="product-desc">Le café légendaire aux notes florales et citronnées. Arrivage prévu en juin.</div>
+        <div class="taste-tags">
+          <span class="taste-tag">Jasmin</span>
+          <span class="taste-tag">Bergamote</span>
+          <span class="taste-tag">Pêche</span>
+        </div>
+        <div class="price-row">
+          <div class="price">—</div>
+          <div class="price-sub">Bientôt disponible</div>
+        </div>
+        <button class="add-btn" disabled><i class="ti ti-bell" aria-hidden="true"></i> Bientôt disponible</button>
+      </div>
+    </div>
+
+    <div class="product-card" style="opacity:0.6">
+      <div class="product-img coming">☕</div>
+      <div class="product-body">
+        <div class="origin-tag">🇨🇴 Colombie · Huila · Juillet 2026</div>
+        <div class="product-name">Huila Anaerobic</div>
+        <div class="product-desc">Fermentation anaérobie, profil exotique très recherché. Arrivage prévu en juillet.</div>
+        <div class="taste-tags">
+          <span class="taste-tag">Fruits tropicaux</span>
+          <span class="taste-tag">Cacao</span>
+          <span class="taste-tag">Vanille</span>
+        </div>
+        <div class="price-row">
+          <div class="price">—</div>
+          <div class="price-sub">Bientôt disponible</div>
+        </div>
+        <button class="add-btn" disabled><i class="ti ti-bell" aria-hidden="true"></i> Bientôt disponible</button>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ── CALCULATEUR + COMMANDE ── -->
+<section class="origins-section">
+  <h2>Nos origines</h2>
+  <p>Chaque café raconte l'histoire d'un terroir unique</p>
+  <div class="origins-grid">
+    <div class="origin-card">
+      <span class="flag">🇧🇮</span>
+      <strong>Burundi</strong>
+      <span>Disponible</span>
+    </div>
+    <div class="origin-card soon">
+      <span class="flag">🇪🇹</span>
+      <strong>Éthiopie</strong>
+      <span>Juin 2026</span>
+    </div>
+    <div class="origin-card soon">
+      <span class="flag">🇨🇴</span>
+      <strong>Colombie</strong>
+      <span>Juillet 2026</span>
+    </div>
+    <div class="origin-card soon">
+      <span class="flag">🇰🇪</span>
+      <strong>Kenya</strong>
+      <span>À venir</span>
+    </div>
+    <div class="origin-card soon">
+      <span class="flag">🇬🇹</span>
+      <strong>Guatemala</strong>
+      <span>À venir</span>
+    </div>
+    <div class="origin-card soon">
+      <span class="flag">🇯🇲</span>
+      <strong>Jamaïque</strong>
+      <span>À venir</span>
+    </div>
+  </div>
+</section>
+
 <section class="order-section" id="commande">
   <div class="order-box">
-    <h2><i class="ti ti-calculator" style="font-size:20px;vertical-align:-3px;margin-right:6px;color:var(--gold)"></i>Ma commande</h2>
-    <p>Ajustez les quantités et votre zone de livraison.</p>
-
+    <h2><i class="ti ti-calculator" style="font-size:18px;vertical-align:-3px;margin-right:6px;color:var(--gold)" aria-hidden="true"></i>Ma commande</h2>
+    <p>Burundi Kayanza disponible · Ajustez les quantités et votre zone</p>
     <div class="qty-row">
-      <label>Café en grain (500g)</label>
+      <label>Burundi Kayanza — Grain (500g)</label>
       <input class="qty-input" type="number" id="qtyGrain" value="0" min="0" max="10" oninput="calcTotal()">
     </div>
     <div class="qty-row">
-      <label>Café moulu (500g)</label>
+      <label>Burundi Kayanza — Moulu (500g)</label>
       <input class="qty-input" type="number" id="qtyMoulu" value="0" min="0" max="10" oninput="calcTotal()">
     </div>
-
     <select class="zone-select" id="zone" onchange="calcTotal()">
       <option value="fr">🇫🇷 France métropolitaine</option>
       <option value="eu">🇪🇺 Europe</option>
       <option value="world">🌍 International</option>
     </select>
-
     <div class="total-box">
       <div class="total-line"><span>Produits</span><span id="totalProduits">0,00 €</span></div>
       <div class="total-line"><span>Frais Colissimo</span><span id="totalPort">—</span></div>
       <div class="total-final"><span>Total</span><span id="totalFinal">—</span></div>
     </div>
-
     <button class="stripe-btn" id="stripeBtn" onclick="payerStripe()">
-      <i class="ti ti-lock"></i> Payer en sécurité avec Stripe
+      <i class="ti ti-lock" aria-hidden="true"></i> Payer en sécurité avec Stripe
     </button>
     <div class="error-msg" id="errorMsg"></div>
     <div class="stripe-note">
-      <i class="ti ti-shield-check" style="font-size:14px"></i>
+      <i class="ti ti-shield-check" style="font-size:13px" aria-hidden="true"></i>
       Paiement 100% sécurisé · Stripe · SSL
     </div>
   </div>
 </section>
 
-<!-- ── SOCIAL PROOF ── -->
-<section class="proof-section">
-  <h2 class="section-title">Ce que disent nos clients</h2>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <div class="review-text">"Le meilleur café que j'ai bu depuis des années. Les notes fruitées sont incroyables, je recommande sans hésiter."</div>
-      <div class="reviewer">— Marie-Claire B., Lyon</div>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <div class="review-text">"Livraison ultra rapide, emballage parfait. Le café en grain est d'une fraîcheur exceptionnelle."</div>
-      <div class="reviewer">— Thomas K., Paris</div>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <div class="review-text">"Je commande toutes les semaines. Impossible de revenir en arrière après avoir goûté ce café."</div>
-      <div class="reviewer">— Sarah M., Bordeaux</div>
-    </div>
+<section class="newsletter">
+  <h2>Soyez les premiers informés</h2>
+  <p>Chaque nouvel arrivage en avant-première, les coulisses de nos sélections, et des offres exclusives pour nos abonnés.</p>
+  <div class="newsletter-form">
+    <input class="newsletter-input" type="email" placeholder="votre@email.com">
+    <button class="newsletter-btn">M'alerter des arrivages</button>
   </div>
 </section>
 
-<!-- ── GARANTIE ── -->
 <section class="guarantee-section">
   <h2>🛡️ Garantie Satisfaction Totale</h2>
   <p>Si vous n'êtes pas 100% satisfait dans les 14 jours suivant réception, nous vous remboursons intégralement — sans question, sans justification. Nous prenons le risque à votre place.</p>
 </section>
 
 <footer class="footer">
-  <p>© 2026 Burundi Coffee · Café de spécialité importé directement du Burundi · Livraison Colissimo partout en France et en Europe</p>
+  <p>© 2026 Le Comptoir des Cafés · Marketplace de cafés de spécialité · Livraison Colissimo partout en France et en Europe</p>
 </footer>
 
-<!-- ── PANIER LATÉRAL ── -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCartOutside(event)">
   <div class="cart-panel">
     <div class="cart-header">
       <h3>Mon panier</h3>
       <button class="close-cart" onclick="toggleCart()"><i class="ti ti-x"></i></button>
     </div>
-    <div id="cartItems">
-      <div class="cart-empty">Votre panier est vide</div>
-    </div>
-    <div class="cart-total-section" id="cartTotals" style="display:none">
-      <div class="total-box">
+    <div id="cartItems"><div class="cart-empty">Votre panier est vide</div></div>
+    <div id="cartTotals" style="display:none">
+      <div class="total-box" style="margin-top:1rem">
         <div class="total-line"><span>Sous-total</span><span id="cartSubtotal">0,00 €</span></div>
         <div class="total-line"><span>Frais de port</span><span>Calculés à l'étape suivante</span></div>
       </div>
       <button class="checkout-btn" onclick="goToOrder()">
-        <i class="ti ti-truck-delivery"></i> Finaliser ma commande
+        <i class="ti ti-truck-delivery" aria-hidden="true"></i> Finaliser ma commande
       </button>
     </div>
   </div>
 </div>
 
 <script>
-  // ── CONFIGURATION ──────────────────────────────────────────────────────────
-  // Remplace par l'URL de ton serveur en production
   const API_URL = window.location.origin;
-
   const PRIX = 25;
-  const cart = { grain: 0, moulu: 0 };
+  const cart = {};
   const stockDispo = { grain: 10, moulu: 10 };
 
-  // ── FRAIS COLISSIMO (côté client pour affichage) ───────────────────────────
   const GRILLES = {
     fr:    [{ max: 0.5, p: 7.59 }, { max: 0.75, p: 9.29 }, { max: 1, p: 9.59 }, { max: 2, p: 11.19 }, { max: 5, p: 17.39 }, { max: 999, p: 25.29 }],
     eu:    [{ max: 0.5, p: 11.90 }, { max: 1, p: 14.90 }, { max: 2, p: 19.90 }, { max: 999, p: 32.00 }],
@@ -359,150 +421,87 @@
 
   function fmt(n) { return n.toFixed(2).replace('.', ',') + ' €'; }
 
-  // ── CHARGEMENT DU STOCK ────────────────────────────────────────────────────
   async function chargerStock() {
     try {
       const res = await fetch(`${API_URL}/stock`);
       const data = await res.json();
       stockDispo.grain = data.grain;
       stockDispo.moulu = data.moulu;
-      majStockBadges();
-    } catch (e) {
-      document.getElementById('stockGrainBadge').textContent = '10 disponibles';
-      document.getElementById('stockMouluBadge').textContent = '10 disponibles';
-    }
+      const bg = document.getElementById('stockGrainBadge');
+      const bm = document.getElementById('stockMouluBadge');
+      bg.textContent = `${data.grain} disponible${data.grain > 1 ? 's' : ''}`;
+      bm.textContent = `${data.moulu} disponible${data.moulu > 1 ? 's' : ''}`;
+      bg.className = 'stock-badge' + (data.grain <= 3 ? ' low' : '');
+      bm.className = 'stock-badge' + (data.moulu <= 3 ? ' low' : '');
+    } catch (e) {}
   }
 
-  function majStockBadges() {
-    const bg = document.getElementById('stockGrainBadge');
-    const bm = document.getElementById('stockMouluBadge');
-    bg.textContent = stockDispo.grain > 0 ? `${stockDispo.grain} disponible${stockDispo.grain > 1 ? 's' : ''}` : 'Rupture de stock';
-    bm.textContent = stockDispo.moulu > 0 ? `${stockDispo.moulu} disponible${stockDispo.moulu > 1 ? 's' : ''}` : 'Rupture de stock';
-    bg.className = 'stock-badge' + (stockDispo.grain <= 3 ? ' low' : '');
-    bm.className = 'stock-badge' + (stockDispo.moulu <= 3 ? ' low' : '');
-    document.getElementById('btnGrain').disabled = stockDispo.grain === 0;
-    document.getElementById('btnMoulu').disabled = stockDispo.moulu === 0;
-  }
-
-  // ── PANIER ─────────────────────────────────────────────────────────────────
-  function addToCart(type) {
-    if (cart[type] >= stockDispo[type]) {
-      alert(`Stock maximum atteint pour ce produit (${stockDispo[type]} disponibles).`);
-      return;
-    }
-    cart[type]++;
+  function addToCart(id, name) {
+    if (!cart[id]) cart[id] = { name, qty: 0 };
+    if (cart[id].qty >= stockDispo[id]) { alert(`Stock maximum atteint (${stockDispo[id]} disponibles).`); return; }
+    cart[id].qty++;
     majCartUI();
     toggleCart();
   }
 
-  function removeFromCart(type) {
-    if (cart[type] > 0) cart[type]--;
+  function removeFromCart(id) {
+    if (cart[id]) { cart[id].qty--; if (cart[id].qty <= 0) delete cart[id]; }
     majCartUI();
   }
 
   function majCartUI() {
-    const total = cart.grain + cart.moulu;
+    const total = Object.values(cart).reduce((s, i) => s + i.qty, 0);
     document.getElementById('cartCount').textContent = total;
-
     const items = document.getElementById('cartItems');
     const totals = document.getElementById('cartTotals');
-
-    if (total === 0) {
-      items.innerHTML = '<div class="cart-empty">Votre panier est vide</div>';
-      totals.style.display = 'none';
-      return;
-    }
-
-    let html = '';
-    let subtotal = 0;
-    if (cart.grain > 0) {
-      const s = cart.grain * PRIX;
-      subtotal += s;
-      html += `<div class="cart-item">
-        <div>
-          <div class="cart-item-name">Burundi Kayanza — Grain</div>
-          <div class="cart-item-price">x${cart.grain} × 25,00 € = ${fmt(s)}</div>
-        </div>
-        <button class="cart-item-remove" onclick="removeFromCart('grain')"><i class="ti ti-trash"></i></button>
-      </div>`;
-    }
-    if (cart.moulu > 0) {
-      const s = cart.moulu * PRIX;
-      subtotal += s;
-      html += `<div class="cart-item">
-        <div>
-          <div class="cart-item-name">Burundi Kayanza — Moulu</div>
-          <div class="cart-item-price">x${cart.moulu} × 25,00 € = ${fmt(s)}</div>
-        </div>
-        <button class="cart-item-remove" onclick="removeFromCart('moulu')"><i class="ti ti-trash"></i></button>
-      </div>`;
-    }
-
+    if (total === 0) { items.innerHTML = '<div class="cart-empty">Votre panier est vide</div>'; totals.style.display = 'none'; return; }
+    let html = ''; let subtotal = 0;
+    Object.entries(cart).forEach(([id, item]) => {
+      const s = item.qty * PRIX; subtotal += s;
+      html += `<div class="cart-item"><div><div class="cart-item-name">${item.name}</div><div class="cart-item-price">x${item.qty} × 25,00 € = ${fmt(s)}</div></div><button class="cart-item-remove" onclick="removeFromCart('${id}')"><i class="ti ti-trash"></i></button></div>`;
+    });
     items.innerHTML = html;
     document.getElementById('cartSubtotal').textContent = fmt(subtotal);
     totals.style.display = 'block';
-
-    // Sync avec le calculateur
-    document.getElementById('qtyGrain').value = cart.grain;
-    document.getElementById('qtyMoulu').value = cart.moulu;
+    const g = cart['grain'] ? cart['grain'].qty : 0;
+    const m = cart['moulu'] ? cart['moulu'].qty : 0;
+    document.getElementById('qtyGrain').value = g;
+    document.getElementById('qtyMoulu').value = m;
     calcTotal();
   }
 
-  // ── CALCULATEUR ────────────────────────────────────────────────────────────
   function calcTotal() {
     const g = parseInt(document.getElementById('qtyGrain').value) || 0;
     const m = parseInt(document.getElementById('qtyMoulu').value) || 0;
     const zone = document.getElementById('zone').value;
     const qty = g + m;
     const subtotal = qty * PRIX;
-
     document.getElementById('totalProduits').textContent = fmt(subtotal);
-
-    if (qty === 0) {
-      document.getElementById('totalPort').textContent = '—';
-      document.getElementById('totalFinal').textContent = '—';
-      return;
-    }
-
+    if (qty === 0) { document.getElementById('totalPort').textContent = '—'; document.getElementById('totalFinal').textContent = '—'; return; }
     const port = getPort(qty, zone);
     document.getElementById('totalPort').textContent = fmt(port);
     document.getElementById('totalFinal').textContent = fmt(subtotal + port);
   }
 
-  // ── PAIEMENT STRIPE ────────────────────────────────────────────────────────
   async function payerStripe() {
     const qtyGrain = parseInt(document.getElementById('qtyGrain').value) || 0;
     const qtyMoulu = parseInt(document.getElementById('qtyMoulu').value) || 0;
     const zone = document.getElementById('zone').value;
     const errEl = document.getElementById('errorMsg');
     const btn = document.getElementById('stripeBtn');
-
     errEl.style.display = 'none';
-
-    if (qtyGrain + qtyMoulu === 0) {
-      errEl.textContent = 'Veuillez sélectionner au moins un produit.';
-      errEl.style.display = 'block';
-      return;
-    }
-
+    if (qtyGrain + qtyMoulu === 0) { errEl.textContent = 'Veuillez sélectionner au moins un produit.'; errEl.style.display = 'block'; return; }
     btn.disabled = true;
     btn.innerHTML = '<i class="ti ti-loader"></i> Redirection vers Stripe...';
-
     try {
       const res = await fetch(`${API_URL}/create-checkout-session`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ qtyGrain, qtyMoulu, zone }),
       });
-
       const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || 'Erreur serveur');
-      }
-
+      if (!res.ok) throw new Error(data.error || 'Erreur serveur');
       window.location.href = data.url;
-
     } catch (err) {
       errEl.textContent = err.message || 'Une erreur est survenue. Veuillez réessayer.';
       errEl.style.display = 'block';
@@ -511,21 +510,10 @@
     }
   }
 
-  // ── PANIER OVERLAY ─────────────────────────────────────────────────────────
-  function toggleCart() {
-    document.getElementById('cartOverlay').classList.toggle('open');
-  }
+  function toggleCart() { document.getElementById('cartOverlay').classList.toggle('open'); }
+  function closeCartOutside(e) { if (e.target === document.getElementById('cartOverlay')) toggleCart(); }
+  function goToOrder() { toggleCart(); document.getElementById('commande').scrollIntoView({ behavior: 'smooth' }); }
 
-  function closeCartOutside(e) {
-    if (e.target === document.getElementById('cartOverlay')) toggleCart();
-  }
-
-  function goToOrder() {
-    toggleCart();
-    document.getElementById('commande').scrollIntoView({ behavior: 'smooth' });
-  }
-
-  // ── INIT ───────────────────────────────────────────────────────────────────
   chargerStock();
   calcTotal();
 </script>
