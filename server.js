@@ -1,5 +1,4 @@
 const express = require('express');
-console.log("STRIPE KEY:", process.env.STRIPE_SECRET_KEY ? "OK - " + process.env.STRIPE_SECRET_KEY.substring(0,12) : "MANQUANTE");
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const cors = require('cors');
 const path = require('path');
@@ -13,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const stock = { grain: 10, moulu: 10 };
 
 // ─── PRIX ────────────────────────────────────────────────────────────────────
-const PRIX_UNITAIRE = 2500; // 25,00 € en centimes
+const PRIX = { grain: 5500, moulu: 4500 }; // en centimes
 
 // ─── FRAIS DE PORT COLISSIMO 2026 ────────────────────────────────────────────
 // Poids estimé par sachet : ~650g (500g café + emballage)
@@ -90,9 +89,8 @@ app.post('/create-checkout-session', async (req, res) => {
           product_data: {
             name: 'Burundi Kayanza — Café en grain 500g',
             description: 'Café de spécialité, origine Kayanza, Burundi. Récolte 2024.',
-            images: [],
           },
-          unit_amount: PRIX_UNITAIRE,
+          unit_amount: PRIX.grain,
         },
         quantity: qtyGrain,
       });
@@ -105,9 +103,8 @@ app.post('/create-checkout-session', async (req, res) => {
           product_data: {
             name: 'Burundi Kayanza — Café moulu 500g',
             description: 'Café de spécialité moulu, origine Kayanza, Burundi. Récolte 2024.',
-            images: [],
           },
-          unit_amount: PRIX_UNITAIRE,
+          unit_amount: PRIX.moulu,
         },
         quantity: qtyMoulu,
       });

@@ -219,10 +219,10 @@
           <span class="taste-tag">Fleurs</span>
         </div>
         <div class="price-row">
-          <div class="price">25,00 €</div>
+          <div class="price">55,00 €</div>
           <div class="price-sub">500g · + port</div>
         </div>
-        <button class="add-btn" onclick="addToCart('grain', 'Burundi Kayanza — Grain')">
+        <button class="add-btn" onclick="addToCart('grain', 'Burundi Kayanza — Grain')")
           <i class="ti ti-shopping-cart-plus" aria-hidden="true"></i> Ajouter au panier
         </button>
       </div>
@@ -244,7 +244,7 @@
           <span class="taste-tag">Miel</span>
         </div>
         <div class="price-row">
-          <div class="price">25,00 €</div>
+          <div class="price">45,00 €</div>
           <div class="price-sub">500g · + port</div>
         </div>
         <button class="add-btn" onclick="addToCart('moulu', 'Burundi Kayanza — Moulu')">
@@ -403,7 +403,7 @@
 
 <script>
   const API_URL = window.location.origin;
-  const PRIX = 25;
+  const PRIX = { grain: 55, moulu: 45 };
   const cart = {};
   const stockDispo = { grain: 10, moulu: 10 };
 
@@ -438,7 +438,7 @@
   }
 
   function addToCart(id, name) {
-    if (!cart[id]) cart[id] = { name, qty: 0 };
+    if (!cart[id]) cart[id] = { name, qty: 0, prix: PRIX[id] };
     if (cart[id].qty >= stockDispo[id]) { alert(`Stock maximum atteint (${stockDispo[id]} disponibles).`); return; }
     cart[id].qty++;
     majCartUI();
@@ -458,8 +458,8 @@
     if (total === 0) { items.innerHTML = '<div class="cart-empty">Votre panier est vide</div>'; totals.style.display = 'none'; return; }
     let html = ''; let subtotal = 0;
     Object.entries(cart).forEach(([id, item]) => {
-      const s = item.qty * PRIX; subtotal += s;
-      html += `<div class="cart-item"><div><div class="cart-item-name">${item.name}</div><div class="cart-item-price">x${item.qty} × 25,00 € = ${fmt(s)}</div></div><button class="cart-item-remove" onclick="removeFromCart('${id}')"><i class="ti ti-trash"></i></button></div>`;
+      const s = item.qty * item.prix; subtotal += s;
+      html += `<div class="cart-item"><div><div class="cart-item-name">${item.name}</div><div class="cart-item-price">x${item.qty} × ${fmt(item.prix)} = ${fmt(s)}</div></div><button class="cart-item-remove" onclick="removeFromCart('${id}')"><i class="ti ti-trash"></i></button></div>`;
     });
     items.innerHTML = html;
     document.getElementById('cartSubtotal').textContent = fmt(subtotal);
@@ -476,7 +476,7 @@
     const m = parseInt(document.getElementById('qtyMoulu').value) || 0;
     const zone = document.getElementById('zone').value;
     const qty = g + m;
-    const subtotal = qty * PRIX;
+    const subtotal = (g * PRIX.grain) + (m * PRIX.moulu);
     document.getElementById('totalProduits').textContent = fmt(subtotal);
     if (qty === 0) { document.getElementById('totalPort').textContent = '—'; document.getElementById('totalFinal').textContent = '—'; return; }
     const port = getPort(qty, zone);
