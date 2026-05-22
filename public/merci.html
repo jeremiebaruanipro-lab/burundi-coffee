@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merci pour votre commande — Burundi Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --brown: #2C1810; --cream: #F5EDD6; --gold: #C8961E; --dark: #1A0F08; --green: #2D4A1E; --light: #FBF7EE; --muted: #7A5C45; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--brown); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; text-align: center; }
+    .icon { font-size: 4rem; margin-bottom: 1rem; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--brown); margin-bottom: 0.75rem; }
+    p { color: var(--muted); max-width: 480px; line-height: 1.7; margin-bottom: 1.5rem; }
+    .card { background: white; border-radius: 16px; padding: 2.5rem; border: 0.5px solid #E0D4B8; max-width: 500px; width: 100%; }
+    .steps { text-align: left; margin: 1.5rem 0; }
+    .step { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+    .step-num { background: var(--gold); color: var(--dark); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+    .step-text strong { display: block; font-size: 0.9rem; color: var(--brown); margin-bottom: 0.2rem; }
+    .step-text span { font-size: 0.82rem; color: var(--muted); }
+    .back-btn { display: inline-block; background: var(--brown); color: var(--cream); padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.95rem; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">☕</div>
+    <h1>Merci pour votre commande !</h1>
+    <p>Votre paiement a bien été reçu. Votre café du Burundi est en cours de préparation.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <strong>Confirmation par email</strong>
+          <span>Vous recevrez un email de confirmation Stripe dans quelques minutes.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <strong>Préparation & expédition</strong>
+          <span>Votre commande est préparée et expédiée sous 24-48h ouvrées.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <strong>Suivi Colissimo</strong>
+          <span>Vous recevrez un numéro de suivi pour suivre votre colis en temps réel.</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="/" class="back-btn">← Retour à la boutique</a>
+  </div>
+</body>
+</html>
