@@ -1,4 +1,5 @@
 const express = require('express');
+console.log("STRIPE KEY:", process.env.STRIPE_SECRET_KEY ? "OK - " + process.env.STRIPE_SECRET_KEY.substring(0,12) : "MANQUANTE");
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const cors = require('cors');
 const path = require('path');
