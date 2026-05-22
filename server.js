@@ -1,3 +1,4 @@
+sed -i '' '1s/^/require("dotenv").config();\n/' server.js
 const express = require('express');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const cors = require('cors');
